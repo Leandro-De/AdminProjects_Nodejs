@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="/css/normalize.css", rel="stylesheet")
+        link(href="/css/app.css", rel="stylesheet")
+        title #{nombrePagina}
+    body 
+        header.barra 
+            h1 Laminados Morato - AdTask 
+            a(href="#") Cerrar Sesion 
+
+        main.contenedor 
+            aside.contenedor-proyectos
+                .panel.crear-proyecto
+                    a(href="#" class="boton") Nuevo Proyecto
+                        span +
+                .panel.lista-proyectos 
+                    h2 Proyectos
+                    ul#proyectos.proyectos 
+                        li 
+                            a(href="#") Lear Node Full
+                        li 
+                            a(href="#") Lear to win
+                        li 
+                            a(href="#") Lear AWS
+
+            block contenido
+            
+        
