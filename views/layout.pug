@@ -20,13 +20,11 @@ html(lang="en")
                 .panel.lista-proyectos 
                     h2 Proyectos
                     ul#proyectos.proyectos 
-                        li 
-                            a(href="#") Lear Node Full
-                        li 
-                            a(href="#") Lear to win
-                        li 
-                            a(href="#") Lear AWS
-
+                        if(proyectos.length)
+                            each proyecto in proyectos
+                                li 
+                                    a(href="#")=proyecto.nombre
+                                
             block contenido
             
         

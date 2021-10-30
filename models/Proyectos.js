@@ -19,7 +19,7 @@ const Proyectos = db.define(
       beforeCreate(proyecto) {
         // Antes de insertar en la BD
         const url = slug(proyecto.nombre).toLowerCase();
-
+        //Asignando url unica para cada proyecto
         proyecto.url = `${url}-${shortid.generate()}`;
       },
     },
