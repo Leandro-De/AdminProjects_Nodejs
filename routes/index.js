@@ -20,5 +20,8 @@ module.exports = function () {
   //Listar proyecto
   router.get("/proyectos/:url", proyectosController.proyectoPorUrl);
 
+  // Actualizr el proyecto
+  router.get("/proyecto/editar/:id", proyectosController.formularioEditar);
+
   return router;
 };
