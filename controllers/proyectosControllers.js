@@ -89,3 +89,32 @@ exports.formularioEditar = async (req, res) => {
     proyecto,
   });
 };
+
+//Actualizar proyecto
+exports.actualizarProyecto = async (req, res) => {
+  const proyectos = await Proyectos.findAll();
+
+  // Validar que tengamos algo en el input
+  const { nombre } = req.body;
+  let errores = [];
+  if (!nombre) {
+    errores.push({ texto: "Agrega un Nombre al Proyecto" });
+  }
+
+  // si hay errores
+  if (errores.length > 0) {
+    res.render("nuevoProyecto", {
+      nombrePagina: "Nuevo Proyecto",
+      errores,
+      proyectos,
+    });
+  } else {
+    //No hay errores
+    //Insertar en la BD.
+    await Proyectos.update(
+      { nombre: nombre },
+      { where: { id: req.params.id } }
+    );
+    res.redirect("/");
+  }
+};
